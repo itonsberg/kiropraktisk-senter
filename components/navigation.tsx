@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/ui/theme-toggle-new'
 import { MegaMenu } from '@/components/mega-menu'
 import { ArticlesMegaMenu } from '@/components/articles-mega-menu'
+import { TjenesterMegaMenu } from '@/components/tjenester-mega-menu'
 import { siteConfig } from '@/lib/site-data'
 
 export function Navigation() {
@@ -18,13 +19,8 @@ export function Navigation() {
       {/* Navigation Links */}
       <div className="hidden md:flex items-center gap-1">
         <MegaMenu />
+        <TjenesterMegaMenu />
         <ArticlesMegaMenu />
-        <a
-          href="/#tjenester"
-          className="px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors text-white"
-        >
-          Tjenester
-        </a>
         <a
           href="/#om-oss"
           className="px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors text-white"

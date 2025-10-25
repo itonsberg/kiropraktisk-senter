@@ -38,17 +38,17 @@ export function Footer() {
               <h3 className={`text-sm font-bold uppercase tracking-wider mb-6 ${getTextClasses('primary')}`}>TJENESTER</h3>
               <ul className="space-y-3">
                 <li>
-                  <a href="/tjenester/rygg" className={`${getTextClasses('tertiary')} hover:text-[#f48337] transition-colors text-sm leading-relaxed`}>
+                  <a href="/behandlinger/rygg" className={`${getTextClasses('tertiary')} hover:text-[#f48337] transition-colors text-sm leading-relaxed`}>
                     Ryggsmerter
                   </a>
                 </li>
                 <li>
-                  <a href="/tjenester/nakke" className={`${getTextClasses('tertiary')} hover:text-[#f48337] transition-colors text-sm leading-relaxed`}>
+                  <a href="/behandlinger/nakke" className={`${getTextClasses('tertiary')} hover:text-[#f48337] transition-colors text-sm leading-relaxed`}>
                     Nakkesmerter
                   </a>
                 </li>
                 <li>
-                  <a href="/tjenester/hodepine" className={`${getTextClasses('tertiary')} hover:text-[#f48337] transition-colors text-sm leading-relaxed`}>
+                  <a href="/behandlinger/hodepine" className={`${getTextClasses('tertiary')} hover:text-[#f48337] transition-colors text-sm leading-relaxed`}>
                     Hodepine
                   </a>
                 </li>

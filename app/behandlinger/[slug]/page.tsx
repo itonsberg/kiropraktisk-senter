@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Phone, Mail, ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, ArrowLeft, CheckCircle2, AlertTriangle, ShieldAlert } from 'lucide-react';
 import { siteConfig, treatments, services } from '@/lib/site-data';
 import knowledgeBase from '@/lib/knowledge-base.json';
 import { KiroKIChat } from '@/components/kiro-ki-chat';
@@ -18,6 +18,9 @@ interface TreatmentData {
     symptoms: string[];
     treatments: string[];
     images: string[];
+    redFlags?: string[];
+    evidenceGrade?: string;
+    timeline?: string;
   };
 }
 
@@ -105,7 +108,7 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#kontakt">
+            <a href="https://onlinebooking.solvitjournal.no/kiropraktisk-senter" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-[#f48337] text-white hover:bg-[#f48337]/90 rounded-full px-8 py-4 text-lg shadow-lg shadow-[#f48337]/30">
                 Bestill Time Nå
               </Button>
@@ -218,6 +221,52 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
                     {paragraph}
                   </p>
                 ))}
+              </div>
+            </div>
+          )}
+
+          {/* Red Flags Warning Section */}
+          {treatment.metadata.redFlags && treatment.metadata.redFlags.length > 0 && (
+            <div className="rounded-3xl bg-red-500/10 ring-2 ring-red-500/30 backdrop-blur p-8 md:p-12 mb-16">
+              <div className="flex items-start gap-4 mb-6">
+                <ShieldAlert className="w-10 h-10 text-red-400 flex-shrink-0" />
+                <div>
+                  <h2 className="text-3xl font-bold text-red-400 mb-2">⚠️ Varselsymptomer</h2>
+                  <p className="text-lg text-white/90">
+                    Søk akutt medisinsk hjelp hvis du opplever ett eller flere av disse symptomene:
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {treatment.metadata.redFlags.map((flag, index) => (
+                  <div key={index} className="flex items-start gap-3 p-4 rounded-xl bg-red-500/10 ring-1 ring-red-500/20">
+                    <AlertTriangle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-white/90">{flag}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-sm text-white/60 mt-6 text-center">
+                Disse symptomene kan indikere alvorlige tilstander som krever umiddelbar legevurdering.
+              </p>
+            </div>
+          )}
+
+          {/* Evidence Grade Badge */}
+          {treatment.metadata.evidenceGrade && (
+            <div className="flex justify-center mb-12">
+              <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-[#f48337]/20 to-[#d6c5ab]/20 ring-1 ring-[#f48337]/30">
+                <CheckCircle2 className="w-5 h-5 text-[#f48337]" />
+                <span className="text-white font-medium">
+                  Evidensgrad: {treatment.metadata.evidenceGrade}
+                </span>
+                {treatment.metadata.timeline && (
+                  <>
+                    <span className="text-white/40">•</span>
+                    <span className="text-white/80 text-sm">
+                      Typisk behandlingstid: {treatment.metadata.timeline}
+                    </span>
+                  </>
+                )}
               </div>
             </div>
           )}

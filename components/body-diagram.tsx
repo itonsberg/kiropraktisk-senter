@@ -18,63 +18,63 @@ const bodyParts: BodyPart[] = [
     "x": 988,
     "y": 104,
     "label": "Hodepine",
-    "url": "/tjenester/hodepine"
+    "url": "/behandlinger/hodepine"
   },
   {
     "id": "nakke",
     "x": 1012,
     "y": 216,
     "label": "Nakke",
-    "url": "/tjenester/nakke"
+    "url": "/behandlinger/nakke"
   },
   {
     "id": "skulder-right",
     "x": 884,
     "y": 261,
     "label": "Skulder",
-    "url": "/tjenester/skulder"
+    "url": "/behandlinger/skulder"
   },
   {
     "id": "albue-left",
     "x": 862,
     "y": 389,
     "label": "Albue",
-    "url": "/tjenester/albue"
+    "url": "/behandlinger/albue"
   },
   {
     "id": "rygg",
     "x": 1040,
     "y": 415,
     "label": "Rygg",
-    "url": "/tjenester/rygg"
+    "url": "/behandlinger/rygg"
   },
   {
     "id": "handledd-left",
     "x": 1126,
     "y": 492,
     "label": "Håndledd",
-    "url": "/tjenester/handledd"
+    "url": "/behandlinger/handledd"
   },
   {
     "id": "kjeve",
     "x": 966,
     "y": 190,
     "label": "Kjeve",
-    "url": "/tjenester/kjeve"
+    "url": "/behandlinger/kjeve"
   },
   {
     "id": "kne-left",
     "x": 908,
     "y": 703,
     "label": "Kne",
-    "url": "/tjenester/kne"
+    "url": "/behandlinger/kne"
   },
   {
     "id": "ankel-left",
     "x": 1071,
     "y": 834,
     "label": "Ankel/Fot",
-    "url": "/tjenester/ankel-fot"
+    "url": "/behandlinger/ankel-fot"
   }
 ]
 
@@ -96,7 +96,7 @@ export function BodyDiagram() {
     const y = Math.round((e.clientY - rect.top) * scaleY)
 
     console.log(`Clicked at: x: ${x}, y: ${y}`)
-    console.log(`{ id: 'body-part', x: ${x}, y: ${y}, label: 'Label', url: '/tjenester/part' },`)
+    console.log(`{ id: 'body-part', x: ${x}, y: ${y}, label: 'Label', url: '/behandlinger/part' },`)
   }
 
   return (

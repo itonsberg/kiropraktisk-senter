@@ -29,70 +29,70 @@ export const services = [
     id: "rygg",
     title: "Ryggsmerter",
     description: "Profesjonell behandling av ryggsmerter",
-    url: "/tjenester/rygg",
+    url: "/behandlinger/rygg",
     icon: "spine"
   },
   {
     id: "nakke",
     title: "Nakke",
     description: "Profesjonell behandling av nakkesmerter",
-    url: "/tjenester/nakke",
+    url: "/behandlinger/nakke",
     icon: "neck"
   },
   {
     id: "skulder",
     title: "Skulder",
     description: "Profesjonell behandling av skuldersmerter",
-    url: "/tjenester/skulder",
+    url: "/behandlinger/skulder",
     icon: "shoulder"
   },
   {
     id: "kne",
     title: "Knesmerter",
     description: "Profesjonell behandling av knesmerter",
-    url: "/tjenester/kne",
+    url: "/behandlinger/kne",
     icon: "knee"
   },
   {
     id: "myalgi",
     title: "Myalgi",
     description: "Profesjonell behandling av muskelsmerter",
-    url: "/tjenester/myalgi",
+    url: "/behandlinger/myalgi",
     icon: "muscle"
   },
   {
     id: "ankel-fot",
     title: "Ankel og Fot",
     description: "Profesjonell behandling av fot- og ankelplager",
-    url: "/tjenester/ankel-fot",
+    url: "/behandlinger/ankel-fot",
     icon: "foot"
   },
   {
     id: "handledd",
     title: "Håndledd",
     description: "Profesjonell behandling av håndleddplager",
-    url: "/tjenester/handledd",
+    url: "/behandlinger/handledd",
     icon: "hand"
   },
   {
     id: "albue",
     title: "Albue",
     description: "Profesjonell behandling av albueplager",
-    url: "/tjenester/albue",
+    url: "/behandlinger/albue",
     icon: "arm"
   },
   {
     id: "kjeve",
     title: "Kjeve",
     description: "Profesjonell behandling av kjeveplager",
-    url: "/tjenester/kjeve",
+    url: "/behandlinger/kjeve",
     icon: "jaw"
   },
   {
     id: "hodepine",
     title: "Hodepine",
     description: "Profesjonell behandling av hodepine",
-    url: "/tjenester/hodepine",
+    url: "/behandlinger/hodepine",
     icon: "head"
   }
 ];
@@ -100,27 +100,33 @@ export const services = [
 export const treatments = [
   {
     name: "Kiropraktikk",
-    description: "Profesjonell kiropraktisk behandling"
+    description: "Profesjonell kiropraktisk behandling",
+    url: "/tjenester/metoder/kiropraktikk"
   },
   {
     name: "Massasje",
-    description: "Terapeutisk massasje"
+    description: "Terapeutisk massasje",
+    url: "/tjenester/metoder/massasje"
   },
   {
     name: "Low-level Laser",
-    description: "Avansert laserbehandling"
+    description: "Avansert laserbehandling",
+    url: "/tjenester/metoder/laser"
   },
   {
     name: "Shock Wave",
-    description: "Sjokkbølgebehandling"
+    description: "Sjokkbølgebehandling",
+    url: "/tjenester/metoder/shock-wave"
   },
   {
     name: "PMST",
-    description: "Pulserende magnetfeltterapi"
+    description: "Pulserende magnetfeltterapi",
+    url: "/tjenester/metoder/pmst"
   },
   {
     name: "PEMF",
-    description: "Pulserende elektromagnetisk feltterapi"
+    description: "Pulserende elektromagnetisk feltterapi",
+    url: "/tjenester/metoder/pemf"
   }
 ];
 

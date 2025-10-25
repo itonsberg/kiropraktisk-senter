@@ -26,7 +26,17 @@
         "https://kiropraktisksenter.no/wp-content/uploads/2025/02/back-pain-6949392_1920-800x800.jpg",
         "https://kiropraktisksenter.no/wp-content/uploads/2025/02/the-back-3605073_1920-800x800.jpg",
         "https://kiropraktisksenter.no/wp-content/uploads/2025/03/2T1A2672-800x800.jpg"
-      ]
+      ],
+      "redFlags": [
+        "Plutselig kontrollbortfall av blære eller tarm",
+        "Gradvis økende svakhet i bena",
+        "Nummenhet i seteområdet eller rundt endetarmen",
+        "Feber kombinert med ryggsmerter",
+        "Intensiv nattlig smerte som ikke lindres av hvile",
+        "Ryggsmerter etter alvorlig ulykke eller fall"
+      ],
+      "evidenceGrade": "Grade A (Sterk evidens)",
+      "timeline": "2-4 uker for akutte, 6-12 uker for kroniske"
     }
   },
   {
