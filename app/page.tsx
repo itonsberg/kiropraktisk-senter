@@ -16,6 +16,7 @@ import { ArticlesPreview } from "@/components/articles-preview"
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [showAllServices, setShowAllServices] = useState(false)
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index)
@@ -79,8 +80,7 @@ export default function HomePage() {
 
           {/* Subheading */}
           <p className="text-xl md:text-2xl text-white/90 max-w-4xl mb-12 leading-relaxed text-pretty">
-            Profesjonell kiropraktikk og massasje i Tønsberg. Vi behandler ryggsmerter, nakkebesvær, og
-            muskel-skjelettplager med moderne utstyr og erfarne terapeuter.
+            Behandler nerve-muskel-og skjelettplager med moderne utstyr og erfarne terapeuter.
           </p>
 
           {/* CTA Buttons */}
@@ -113,40 +113,40 @@ export default function HomePage() {
       <section className="py-24 px-6 bg-gray-50 dark:bg-[#0B0F12]">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-            {/* Erfarne Terapeuter */}
+            {/* Optimal funksjon */}
             <div className="rounded-2xl bg-[#f9f9f9] dark:bg-black/20 ring-1 ring-gray-200 dark:ring-white/15 backdrop-blur p-8 text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white dark:bg-[#d6c5ab]/30 ring-1 ring-gray-200 dark:ring-[#d6c5ab]/40 mb-6">
                 <Award className="w-6 h-6 text-[#d6c5ab]" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Erfarne Terapeuter</h3>
-              <p className="text-gray-700 dark:text-white/80 leading-relaxed">Autoriserte kiropraktorer og massører med høy kompetanse.</p>
+              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Optimal funksjon</h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">Ikke bare fravær av smerte, men bedre samspill mellom hjerne og kropp</p>
             </div>
 
-            {/* Moderne Utstyr */}
+            {/* Vitenskapsbasert */}
             <div className="rounded-2xl bg-[#f9f9f9] dark:bg-black/20 ring-1 ring-gray-200 dark:ring-white/15 backdrop-blur p-8 text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white dark:bg-[#d6c5ab]/30 ring-1 ring-gray-200 dark:ring-[#d6c5ab]/40 mb-6">
                 <Activity className="w-6 h-6 text-[#d6c5ab]" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Moderne Utstyr</h3>
-              <p className="text-gray-700 dark:text-white/80 leading-relaxed">Avansert teknologi som Laser, Shock Wave og PEMF.</p>
+              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Vitenskapsbasert</h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">Moderne forskning viser målbare effekter på hjernens aktivitet</p>
             </div>
 
-            {/* {stats.experience} Erfaring */}
+            {/* Helhetlig tilnærming */}
             <div className="rounded-2xl bg-[#f9f9f9] dark:bg-black/20 ring-1 ring-gray-200 dark:ring-white/15 backdrop-blur p-8 text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white dark:bg-[#d6c5ab]/30 ring-1 ring-gray-200 dark:ring-[#d6c5ab]/40 mb-6">
                 <Clock className="w-6 h-6 text-[#d6c5ab]" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{stats.experience} Erfaring</h3>
-              <p className="text-gray-700 dark:text-white/80 leading-relaxed">Vi har behandlet pasienter siden {stats.since}.</p>
+              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Helhetlig tilnærming</h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">Vi ser kroppen som et system der alt henger sammen</p>
             </div>
 
-            {/* Sentralt i Tønsberg */}
+            {/* Skreddersydd behandling */}
             <div className="rounded-2xl bg-[#f9f9f9] dark:bg-black/20 ring-1 ring-gray-200 dark:ring-white/15 backdrop-blur p-8 text-center">
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white dark:bg-[#d6c5ab]/30 ring-1 ring-gray-200 dark:ring-[#d6c5ab]/40 mb-6">
                 <Heart className="w-6 h-6 text-[#d6c5ab]" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Sentralt i Tønsberg</h3>
-              <p className="text-gray-700 dark:text-white/80 leading-relaxed">Lett tilgjengelig på Eikveien 33, Tønsberg.</p>
+              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Skreddersydd behandling</h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">Presis justering kombinert med råd om livsstil og øvelser</p>
             </div>
           </div>
         </div>
@@ -159,7 +159,7 @@ export default function HomePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
               <div>
                 <div className="text-5xl md:text-6xl font-bold mb-2">{stats.experience}</div>
-                <p className="text-white/90 font-medium">Erfaring</p>
+                <p className="text-white/90 font-medium">Grunnlagt</p>
               </div>
               <div>
                 <div className="text-5xl md:text-6xl font-bold mb-2">{stats.patients}</div>
@@ -198,9 +198,9 @@ export default function HomePage() {
             description="Vi behandler et bredt spekter av muskel- og skjelettplager med skreddersydde løsninger."
           />
 
-          {/* Services Grid - Featured 6 Treatments */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {services.slice(0, 6).map((service, index) => {
+          {/* Services Grid */}
+          <div id="alle-behandlinger" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 [&>*:last-child:nth-child(3n+1)]:lg:col-start-2">
+            {(showAllServices ? services : services.slice(0, 6)).map((service, index) => {
               const imageMap: Record<string, string> = {
                 'rygg': '/images/rygg-hero.jpg',
                 'nakke': '/images/nakke-hero.jpg',
@@ -237,26 +237,40 @@ export default function HomePage() {
             })}
           </div>
 
-            {/* See All Button */}
+            {/* See All/Less Button */}
             <div className="text-center">
-              <a href="#alle-behandlinger">
-                <Button variant="outline" className="bg-white/10 ring-1 ring-white/20 border-0 text-white hover:bg-white/20 rounded-full px-8 py-3">
-                  Se Alle {services.length} Behandlinger
-                </Button>
-              </a>
+              <Button
+                onClick={() => setShowAllServices(!showAllServices)}
+                variant="outline"
+                className="bg-[#fff5ed] border-0 text-[#f48337] hover:bg-[#ffe8d6] rounded-full px-10 py-4 font-semibold"
+              >
+                {showAllServices ? (
+                  <>
+                    <Minus className="w-4 h-4 mr-2" />
+                    Se Mindre
+                  </>
+                ) : (
+                  <>
+                    <Plus className="w-4 h-4 mr-2" />
+                    Se Alle {services.length} Behandlinger
+                  </>
+                )}
+              </Button>
             </div>
 
           {/* Treatments */}
           <div id="tjenester" className="mb-12 mt-16">
             <h3 className={`${getHeadingClasses('h3')} text-center mb-8 mt-8`}>Våre Behandlingsmetoder</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {treatments.map((treatment) => (
-                <Card key={treatment.name} variant="light">
-                  <div className="text-center p-6">
-                    <p className={`font-semibold text-sm mb-2 ${getTextClasses('primary')}`}>{treatment.name}</p>
-                    <p className={`text-xs ${getTextClasses('tertiary')} leading-relaxed`}>{treatment.description}</p>
-                  </div>
-                </Card>
+                <a key={treatment.name} href={treatment.url} className="block">
+                  <Card variant="light" className="h-full hover:ring-[#f48337] hover:ring-2 transition-all">
+                    <div className="p-6">
+                      <p className={`font-semibold text-lg mb-2 ${getTextClasses('primary')}`}>{treatment.name}</p>
+                      <p className={`text-sm ${getTextClasses('tertiary')} leading-relaxed`}>{treatment.description}</p>
+                    </div>
+                  </Card>
+                </a>
               ))}
             </div>
           </div>
@@ -277,51 +291,6 @@ export default function HomePage() {
 
       {/* Articles Preview */}
       <ArticlesPreview />
-
-      {/* FAQ Section */}
-      <Section id="om-oss">
-        <Card variant="light" className="p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Left Column - Title and Description */}
-            <div>
-              <h2 className={`${getHeadingClasses('h2')} mb-6`}>
-                Ofte Stilte Spørsmål
-              </h2>
-              <p className={`text-xl ${getTextClasses('tertiary')} leading-relaxed`}>
-                Alt du trenger å vite om våre behandlinger, fra bookingprosess til behandlingsforløp.
-              </p>
-            </div>
-
-            {/* Right Column - FAQ Accordion */}
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <Card
-                  key={index}
-                  variant="light"
-                  className="overflow-hidden"
-                >
-                  <button
-                    onClick={() => toggleFaq(index)}
-                    className={`w-full p-6 text-left flex items-center justify-between hover:bg-gray-100 dark:hover:bg-white/5 transition-colors ${getTextClasses('primary')}`}
-                  >
-                    <h3 className="text-lg font-semibold pr-4">{faq.question}</h3>
-                    {openFaq === index ? (
-                      <Minus className="w-5 h-5 flex-shrink-0" />
-                    ) : (
-                      <Plus className="w-5 h-5 flex-shrink-0" />
-                    )}
-                  </button>
-                  {openFaq === index && (
-                    <div className="px-6 pb-6">
-                      <p className={`${getTextClasses('tertiary')} leading-relaxed`}>{faq.answer}</p>
-                    </div>
-                  )}
-                </Card>
-              ))}
-            </div>
-          </div>
-        </Card>
-      </Section>
 
       {/* Contact Section */}
       <Section id="kontakt">
