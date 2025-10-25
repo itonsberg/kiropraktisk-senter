@@ -22,7 +22,7 @@ export function Navigation() {
         <TjenesterMegaMenu />
         <ArticlesMegaMenu />
         <a
-          href="/#om-oss"
+          href="/om-oss"
           className="px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors text-white"
         >
           Om Oss

@@ -8,6 +8,8 @@ import { Testimonials } from '@/components/ui/testimonials';
 import { Navigation } from '@/components/navigation';
 import { Card, CardContent } from '@/components/ui/section';
 import { getTextClasses, getHeadingClasses, getCardClasses } from '@/lib/theme-config';
+import { ResearchCitationsSection } from '@/components/research-citations-section';
+import { TreatmentContent } from '@/components/treatment-content';
 
 interface TreatmentData {
   id: string;
@@ -21,6 +23,10 @@ interface TreatmentData {
     redFlags?: string[];
     evidenceGrade?: string;
     timeline?: string;
+    researchCitations?: Array<{
+      source: string;
+      finding: string;
+    }>;
   };
 }
 
@@ -70,10 +76,21 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
 
   const heroImage = HERO_IMAGES[treatment.id] || '/images/hero-treatment-bw.jpg';
 
-  // Split content into paragraphs
+  // Split content into paragraphs and filter out duplicate title
   const paragraphs = treatment.content
     .split('\n\n')
-    .filter(p => p.trim().length > 0 && !p.includes('Introduction Video'));
+    .filter(p => p.trim().length > 0 && !p.includes('Introduction Video'))
+    .filter((p, index) => {
+      // Remove first paragraph if it's a duplicate of the title
+      if (index === 0 && p.trim() === treatment.title.trim()) {
+        return false;
+      }
+      // Also remove if first 2 paragraphs are identical
+      if (index === 1 && paragraphs[0] && p.trim() === paragraphs[0].trim()) {
+        return false;
+      }
+      return true;
+    });
 
   return (
     <>
@@ -99,11 +116,11 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
             Tilbake til forsiden
           </a>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 text-white tracking-tight">
             {treatment.title}
           </h1>
 
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8">
+          <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-8 font-normal">
             Profesjonell behandling siden 1981
           </p>
 
@@ -124,42 +141,18 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
       </div>
 
       {/* Main Content */}
-      <section className="relative z-10 py-24 px-6 bg-gradient-to-b from-black via-gray-900 to-black text-white">
+      <section className="relative z-10 py-24 px-6 bg-[#141414] text-white">
         <div className="max-w-6xl mx-auto">
-          {/* Intro Section with Image */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            <div className="rounded-3xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 md:p-12 space-y-6">
-              {paragraphs.slice(0, 3).map((paragraph, index) => (
-                <p key={index} className="text-lg leading-relaxed text-white/90">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-
-            <div className="rounded-3xl overflow-hidden ring-1 ring-white/10">
-              <img
-                src={heroImage}
-                alt={treatment.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Additional Content */}
-          {paragraphs.length > 3 && (
-            <div className="rounded-3xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 md:p-12 space-y-6 mb-16">
-              {paragraphs.slice(3, 5).map((paragraph, index) => (
-                <p key={index} className="text-lg leading-relaxed text-white/90">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          )}
+          <TreatmentContent
+            paragraphs={paragraphs}
+            treatmentTitle={treatment.title}
+            heroImage={heroImage}
+          />
 
           {/* Symptoms Section */}
           {treatment.metadata.symptoms && treatment.metadata.symptoms.length > 0 && (
-            <div className="mt-16 rounded-3xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 md:p-12">
-              <h2 className="text-3xl font-bold mb-8">Vanlige Symptomer</h2>
+            <div className="mt-16 mb-16 rounded-3xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 md:p-12">
+              <h2 className="text-3xl font-bold mb-8 tracking-tight">Vanlige Symptomer</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {treatment.metadata.symptoms
                   .filter(s => s.length < 200 && !s.includes('Hva vi behandler'))
@@ -188,7 +181,7 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
                     return (
                       <div key={index} className="flex items-start gap-3 p-4 rounded-xl bg-white/5">
                         <CheckCircle2 className="w-5 h-5 text-[#f48337] flex-shrink-0 mt-0.5" />
-                        <span className="text-white/90">{symptom}</span>
+                        <span className="text-white/80 font-normal">{symptom}</span>
                       </div>
                     )
                   })}
@@ -197,7 +190,7 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
           )}
 
           {/* Treatment Methods Section */}
-          <div className="rounded-3xl bg-gradient-to-br from-[#f48337]/20 to-[#f48337]/10 ring-1 ring-[#f48337]/30 backdrop-blur p-8 md:p-12 mb-16">
+          <div className="mt-16 rounded-3xl bg-gradient-to-br from-[#f48337]/20 to-[#f48337]/10 ring-1 ring-[#f48337]/30 backdrop-blur p-8 md:p-12 mb-16">
             <h2 className="text-3xl font-bold mb-8 text-center text-white">Våre Behandlingsmetoder</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {treatments.map((treatment) => (
@@ -214,10 +207,10 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
           {/* More Content */}
           {paragraphs.length > 5 && (
             <div className="rounded-3xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 md:p-12 mb-16">
-              <h2 className="text-3xl font-bold mb-6">Behandling og Tilnærming</h2>
+              <h2 className="text-3xl font-bold mb-6 tracking-tight">Behandling og Tilnærming</h2>
               <div className="space-y-6">
                 {paragraphs.slice(5, 8).map((paragraph, index) => (
-                  <p key={index} className="text-lg leading-relaxed text-white/90">
+                  <p key={index} className="text-lg leading-relaxed text-white/80 font-normal">
                     {paragraph}
                   </p>
                 ))}
@@ -227,25 +220,25 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
 
           {/* Red Flags Warning Section */}
           {treatment.metadata.redFlags && treatment.metadata.redFlags.length > 0 && (
-            <div className="rounded-3xl bg-red-500/10 ring-2 ring-red-500/30 backdrop-blur p-8 md:p-12 mb-16">
+            <div className="rounded-3xl bg-[#1e1e1e] ring-2 ring-[#e58949]/30 backdrop-blur p-8 md:p-12 mb-16">
               <div className="flex items-start gap-4 mb-6">
-                <ShieldAlert className="w-10 h-10 text-red-400 flex-shrink-0" />
+                <ShieldAlert className="w-10 h-10 text-[#e58949] flex-shrink-0" />
                 <div>
-                  <h2 className="text-3xl font-bold text-red-400 mb-2">⚠️ Varselsymptomer</h2>
-                  <p className="text-lg text-white/90">
+                  <h2 className="text-3xl font-bold text-white mb-2">⚠️ Varselsymptomer</h2>
+                  <p className="text-lg text-white">
                     Søk akutt medisinsk hjelp hvis du opplever ett eller flere av disse symptomene:
                   </p>
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {treatment.metadata.redFlags.map((flag, index) => (
-                  <div key={index} className="flex items-start gap-3 p-4 rounded-xl bg-red-500/10 ring-1 ring-red-500/20">
-                    <AlertTriangle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-white/90">{flag}</span>
+                  <div key={index} className="flex items-start gap-3 p-4 rounded-xl bg-[#141414] ring-1 ring-[#e58949]/20">
+                    <AlertTriangle className="w-5 h-5 text-[#e58949] flex-shrink-0 mt-0.5" />
+                    <span className="text-white">{flag}</span>
                   </div>
                 ))}
               </div>
-              <p className="text-sm text-white/60 mt-6 text-center">
+              <p className="text-sm text-white/80 mt-6 text-center">
                 Disse symptomene kan indikere alvorlige tilstander som krever umiddelbar legevurdering.
               </p>
             </div>
@@ -271,6 +264,11 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
             </div>
           )}
 
+          {/* Research Citations Section */}
+          {treatment.metadata.researchCitations && treatment.metadata.researchCitations.length > 0 && (
+            <ResearchCitationsSection citations={treatment.metadata.researchCitations} />
+          )}
+
           {/* Equipment Images */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             <div className="rounded-2xl overflow-hidden ring-1 ring-white/10">
@@ -291,7 +289,7 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
 
           {/* All Treatments List */}
           <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white">Alle Våre Behandlinger</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white tracking-tight">Alle Våre Behandlinger</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {services.map((service) => {
                 const imageMap: Record<string, string> = {
@@ -321,7 +319,7 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
                     />
                     <div className="flex-1">
                       <h4 className={`font-semibold text-lg mb-1 ${getTextClasses('primary')}`}>{service.title}</h4>
-                      <p className={`text-sm ${getTextClasses('tertiary')}`}>{service.description}</p>
+                      <p className={`text-sm ${getTextClasses('tertiary')} font-normal`}>{service.description}</p>
                     </div>
                     <div className="text-[#f48337]">→</div>
                   </a>
@@ -367,7 +365,7 @@ export default async function TreatmentPage({ params }: { params: Promise<{ slug
       </section>
 
       {/* Testimonials Section */}
-      <section className="relative z-10 bg-gradient-to-b from-black via-gray-900 to-black">
+      <section className="relative z-10 bg-[#141414]">
         <Testimonials />
       </section>
 

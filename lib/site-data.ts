@@ -141,5 +141,5 @@ export const teamMembers = [
 export const stats = {
   since: 1981,
   patients: "5000+",
-  experience: new Date().getFullYear() - 1981 + " år"
+  experience: "1981"
 };

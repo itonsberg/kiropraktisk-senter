@@ -26,90 +26,90 @@ interface Clinician {
 
 const clinicians: Clinician[] = [
   {
-    name: "Lars Petter Ekeland",
+    name: "Lars Martin Holthe",
     role: "Kiropraktor & Klinikksjef",
-    specialty: "Spesialist i idrettsskader og korsryggplager",
+    specialty: "Spesialist nerve-muskel-og skjelettplager",
     description:
-      "Lars Petter har over 40 års erfaring med kiropraktisk behandling og har behandlet tusenvis av pasienter siden 1981.",
-    imageUrl: "/images/team-senior-male-bw.jpg",
+      "Lars Martin behandler kroppen som en helhet, med et sterkt fokus på optimal funksjon av hjernen og nervesystemet.",
+    imageUrl: "/images/team/lars.jpg",
     qualifications: [
       "Autorisert Kiropraktor",
-      "Spesialist i Idrettsskader",
-      "40+ års klinisk erfaring",
-      "Sertifisert i Shock Wave og PEMF"
+      "Gonstead systemet",
+      "Carrick institute",
+      "DNALife"
     ],
-    experience: "40+ år",
+    experience: "7+ år",
     focus: [
-      "Korsryggplager",
+      "Ryggplager",
       "Idrettsskader",
-      "Langvarige smerter",
-      "Holdningskorrigering"
+      "Kroniske smerter",
+      "Nakkesmerter"
+    ],
+    bookingUrl: "/om-oss"
+  },
+  {
+    name: "Anniken Nordby",
+    role: "Klinikk Assistent",
+    specialty: "Ansvarlig for booking og pasientmottak",
+    description:
+      "Anniken er klinikkens hjertevarme mottak. Hun sørger for at alle pasienter føler seg velkommen og får en smidig opplevelse fra booking til behandling.",
+    imageUrl: "/images/team/anniken.jpg",
+    qualifications: [
+      "Resepsjon og kundeservice",
+      "Timebestilling og koordinering",
+      "Pasientoppfølging",
+      "Administrativ støtte"
+    ],
+    experience: "Flere år",
+    focus: [
+      "Booking og timebestilling",
+      "Pasientmottak",
+      "Administrativ støtte",
+      "Kundeservice"
     ],
     bookingUrl: "#kontakt"
   },
   {
-    name: "Øyvind Martinsen",
-    role: "Kiropraktor",
-    specialty: "Spesialist i nakke- og hodepineplager",
+    name: "Yurii Vasylets",
+    role: "Muskelterapeut & Kinesiolog",
+    specialty: "Spesialist i idrettsmassasje og triggerpunktbehandling",
     description:
-      "Øyvind er ekspert på nakke- og hodepinerelaterte plager med over 15 års erfaring.",
-    imageUrl: "/images/team-male-glasses-bw.jpg",
+      "Yurii er utdannet muskelterapeut og kinesiolog fra Ukraina med over 6 års erfaring. Han har omfattende erfaring med både profesjonelle idrettsutøvere og soldater, og har en dyp forståelse for komplekse muskelsmerter, langvarige plager og idrettsskader. Med sin bakgrunn har han utviklet ekspertise i arbeid med bindevev, holdningsmuskulatur og muskelsmerter.",
+    imageUrl: "/images/team/yuri.jpg",
     qualifications: [
-      "Autorisert Kiropraktor",
-      "Spesialist i Nakkeplager",
-      "15+ års klinisk erfaring",
-      "Sertifisert i Low-level Laser"
+      "Utdannet Muskelterapeut",
+      "Kinesiolog",
+      "Sertifisert i Triggerpunktbehandling",
+      "6+ års klinisk erfaring"
     ],
-    experience: "15+ år",
+    experience: "6+ år",
     focus: [
-      "Nakkesmerter",
-      "Hodepine & Migrene",
-      "Whiplash-skader",
-      "Ansiktssmerter (TMJ)"
-    ],
-    bookingUrl: "#kontakt"
-  },
-  {
-    name: "Ane Kristiansen",
-    role: "Massør & Manuellterapeut",
-    specialty: "Spesialist i muskelterapi og myalgi",
-    description:
-      "Ane har omfattende kompetanse innen massasje, triggerpunktbehandling og manuellterapi.",
-    imageUrl: "/images/team-female-portrait.jpg",
-    qualifications: [
-      "Autorisert Massør",
-      "Sertifisert Manuellterapeut",
-      "Triggerpunkt-spesialist",
-      "Utdannet i Myofascial Release"
-    ],
-    experience: "10+ år",
-    focus: [
-      "Myalgi & Fibromyalgi",
+      "Bindevevsmassasje",
+      "Idrettsmassasje",
       "Triggerpunktbehandling",
-      "Spenningshodepine",
-      "Rehabilitering"
+      "Kinesiologisk muskeltesting"
     ],
     bookingUrl: "#kontakt"
   },
   {
-    name: "Martin Johansen",
-    role: "Kiropraktor",
-    specialty: "Spesialist i ekstremitetsskader",
+    name: "Kristian Santiago Ankersen",
+    role: "Muskelterapeut PT og Massør",
+    specialty: "Helse og Treningsfysiolog med høy kompetanse innen idrett",
     description:
-      "Martin fokuserer på skader i armer, ben, skuldre og hofter som tidligere toppidrettsutøver.",
-    imageUrl: "/images/team-young-male.jpg",
+      "Kristian er utdannet Helse og Treningsfysiolog ved Høgskolen i Innlandet og utdannet muskelterapeut. Han jobber med rygg-, muskel- og leddplager, og har høy kompetanse innen idrett. Som aktiv toppidrettsutøver innen ski og rulleski har han en unik forståelse for idrettsrelaterte plager og prestasjonsoptimalisering.",
+    imageUrl: "/images/team/kristian.jpg",
     qualifications: [
-      "Autorisert Kiropraktor",
-      "Spesialist i Ekstremiteter",
-      "Tidligere Toppidrettsutøver",
-      "Sertifisert i PMST og Shock Wave"
+      "Helse og Treningsfysiolog (Høgskolen i Innlandet)",
+      "Utdannet Muskelterapeut",
+      "PT og Massør",
+      "Aktiv toppidrettsutøver"
     ],
-    experience: "8+ år",
+    experience: "Flere år",
     focus: [
-      "Skulderproblemer",
-      "Kne- og ankelskader",
-      "Albue- og håndleddplager",
-      "Idrettsrehabilitering"
+      "Rygg-, muskel- og leddplager",
+      "Idrettsskader",
+      "Prestasjonsoptimalisering",
+      "Rehabilitering"
     ],
     bookingUrl: "#kontakt"
   }

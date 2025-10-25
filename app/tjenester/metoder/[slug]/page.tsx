@@ -66,15 +66,15 @@ export default async function TreatmentMethodPage({ params }: { params: Promise<
             <span className="text-sm font-medium text-white">{method.hero.badge}</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-4 text-white tracking-tight">
             {method.title}
           </h1>
 
-          <p className="text-2xl md:text-3xl text-white/90 font-light mb-8">
+          <p className="text-2xl md:text-3xl text-white/90 font-normal mb-8">
             {method.subtitle}
           </p>
 
-          <p className="text-xl text-white/80 max-w-3xl mx-auto mb-12">
+          <p className="text-xl text-white/80 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
             {method.meta}
           </p>
 
@@ -99,12 +99,12 @@ export default async function TreatmentMethodPage({ params }: { params: Promise<
         <div className="max-w-6xl mx-auto">
           {/* Intro Section */}
           <div className="mb-24">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center tracking-tight">
               {method.sections.intro.title}
             </h2>
             <div className="space-y-6">
               {method.sections.intro.content.map((paragraph, index) => (
-                <p key={index} className="text-xl leading-relaxed text-white/90 text-center max-w-4xl mx-auto">
+                <p key={index} className="text-xl leading-relaxed text-white/80 text-center max-w-4xl mx-auto font-normal">
                   {paragraph}
                 </p>
               ))}
@@ -113,10 +113,10 @@ export default async function TreatmentMethodPage({ params }: { params: Promise<
 
           {/* What Is It Section */}
           <div className="rounded-3xl bg-white/5 ring-1 ring-white/10 backdrop-blur p-8 md:p-12 mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">{method.sections.whatIsIt.title}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 tracking-tight">{method.sections.whatIsIt.title}</h2>
             <div className="space-y-6 mb-8">
               {method.sections.whatIsIt.content.map((paragraph, index) => (
-                <p key={index} className="text-lg leading-relaxed text-white/90">
+                <p key={index} className="text-lg leading-relaxed text-white/80 font-normal">
                   {paragraph}
                 </p>
               ))}
@@ -127,7 +127,7 @@ export default async function TreatmentMethodPage({ params }: { params: Promise<
                 {method.sections.whatIsIt.benefits.map((benefit, index) => (
                   <div key={index} className="flex items-start gap-3 p-4 rounded-xl bg-white/5">
                     <CheckCircle2 className="w-5 h-5 text-[#f48337] flex-shrink-0 mt-0.5" />
-                    <span className="text-white/90">{benefit}</span>
+                    <span className="text-white/80 font-normal">{benefit}</span>
                   </div>
                 ))}
               </div>
@@ -136,10 +136,10 @@ export default async function TreatmentMethodPage({ params }: { params: Promise<
 
           {/* How It Works Section */}
           <div className="rounded-3xl bg-gradient-to-br from-[#f48337]/10 to-[#d6c5ab]/10 ring-1 ring-[#f48337]/20 backdrop-blur p-8 md:p-12 mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">{method.sections.howItWorks.title}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 tracking-tight">{method.sections.howItWorks.title}</h2>
             <div className="space-y-6 mb-8">
               {method.sections.howItWorks.content.map((paragraph, index) => (
-                <p key={index} className="text-lg leading-relaxed text-white/90">
+                <p key={index} className="text-lg leading-relaxed text-white/80 font-normal">
                   {paragraph}
                 </p>
               ))}
@@ -149,10 +149,10 @@ export default async function TreatmentMethodPage({ params }: { params: Promise<
               <div className="space-y-4 mt-8">
                 {method.sections.howItWorks.steps.map((step, index) => (
                   <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-white/10">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#f48337] text-white flex items-center justify-center font-bold">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#f48337] text-white flex items-center justify-center font-semibold text-sm">
                       {index + 1}
                     </div>
-                    <span className="text-white/90 pt-1">{step}</span>
+                    <span className="text-white/80 pt-1 font-normal">{step}</span>
                   </div>
                 ))}
               </div>
