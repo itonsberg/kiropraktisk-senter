@@ -12,6 +12,7 @@ import { Testimonials } from "@/components/ui/testimonials"
 import { TeamCarousel } from "@/components/team-carousel"
 import { Section, SectionHeader, Card, CardContent, CardTitle, CardDescription, IconWrapper } from "@/components/ui/section"
 import { getCardClasses, getTextClasses, getHeadingClasses } from "@/lib/theme-config"
+import { ArticlesPreview } from "@/components/articles-preview"
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
@@ -84,7 +85,7 @@ export default function HomePage() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <a href="#kontakt">
+            <a href="https://onlinebooking.solvitjournal.no/kiropraktisk-senter" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-[#f48337] text-white hover:bg-[#f48337]/90 rounded-full px-8 py-4 text-lg shadow-lg shadow-[#f48337]/30">
                 Bestill Time Nå
               </Button>
@@ -246,8 +247,8 @@ export default function HomePage() {
             </div>
 
           {/* Treatments */}
-          <div id="tjenester" className="mb-12">
-            <h3 className={`${getHeadingClasses('h3')} text-center mb-8`}>Våre Behandlingsmetoder</h3>
+          <div id="tjenester" className="mb-12 mt-16">
+            <h3 className={`${getHeadingClasses('h3')} text-center mb-8 mt-8`}>Våre Behandlingsmetoder</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {treatments.map((treatment) => (
                 <Card key={treatment.name} variant="light">
@@ -262,7 +263,7 @@ export default function HomePage() {
 
           {/* CTA Button */}
           <div className="text-center">
-            <a href="#kontakt">
+            <a href="https://onlinebooking.solvitjournal.no/kiropraktisk-senter" target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 className="bg-[#f48337] text-white hover:bg-[#f48337]/90 rounded-full px-12 py-4 text-lg font-semibold shadow-lg shadow-[#f48337]/30"
@@ -273,6 +274,9 @@ export default function HomePage() {
           </div>
         </div>
       </Section>
+
+      {/* Articles Preview */}
+      <ArticlesPreview />
 
       {/* FAQ Section */}
       <Section id="om-oss">

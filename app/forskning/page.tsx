@@ -93,7 +93,7 @@ export default function ForskningPage() {
                 Vårt team av erfarne kiropraktorer kan hjelpe deg med alt fra ryggsmerter til forbedret hjernefunksjon.
               </p>
               <a
-                href="/#kontakt"
+                href="https://onlinebooking.solvitjournal.no/kiropraktisk-senter" target="_blank" rel="noopener noreferrer"
                 className="inline-block px-8 py-3 bg-[#f48337] text-white font-medium rounded-lg hover:bg-[#f48337]/90 transition-colors"
               >
                 Bestill Time

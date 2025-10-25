@@ -49,7 +49,9 @@ export function Navigation() {
           <Phone className="w-4 h-4" />
           <span className="hidden sm:inline">Ring Oss</span>
         </a>
-        <Button className="bg-[#f48337] text-white hover:bg-[#f48337]/90 rounded-full px-6">Bestill Time</Button>
+        <a href="https://onlinebooking.solvitjournal.no/kiropraktisk-senter" target="_blank" rel="noopener noreferrer">
+          <Button className="bg-[#f48337] text-white hover:bg-[#f48337]/90 rounded-full px-6">Bestill Time</Button>
+        </a>
       </div>
     </nav>
   )

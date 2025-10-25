@@ -28,13 +28,21 @@ export function MegaMenu() {
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <button className="flex items-center gap-1 px-4 py-2 bg-black/40 ring-1 ring-white/20 backdrop-blur rounded-full hover:bg-black/50 transition-colors text-white">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`flex items-center gap-1 px-4 py-2 backdrop-blur rounded-full transition-colors text-white ${
+          isOpen
+            ? 'bg-[#f48337] ring-1 ring-[#f48337]'
+            : 'bg-black/40 ring-1 ring-white/20 hover:bg-black/50'
+        }`}
+      >
         Hva vi behandler
         <ChevronDown className={`w-4 h-4 transition-transform text-white ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[800px] max-w-[90vw] bg-black/95 backdrop-blur-xl rounded-2xl ring-1 ring-white/10 shadow-2xl p-6 z-50">
+        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[800px] max-w-[90vw] z-50">
+          <div className="bg-black/95 backdrop-blur-xl rounded-2xl ring-1 ring-white/10 shadow-2xl p-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Left: Featured Image */}
             <div className="hidden md:block">
@@ -91,6 +99,7 @@ export function MegaMenu() {
               Se alle behandlinger →
             </a>
           </div>
+        </div>
         </div>
       )}
     </div>
