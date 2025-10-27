@@ -203,43 +203,19 @@ export function KiroKIChat() {
           const { done, value } = await reader.read()
           if (done) break
 
-          const chunk = decoder.decode(value)
-          const lines = chunk.split('\n').filter(line => line.trim())
+          // Decode chunk and append directly (preserves newlines)
+          const chunk = decoder.decode(value, { stream: true })
+          aiResponse += chunk
 
-          for (const line of lines) {
-            // Handle Vercel AI SDK text stream format
-            if (line.startsWith('0:')) {
-              // Format: 0:"text content"
-              const match = line.match(/^0:"(.+)"$/)
-              if (match) {
-                aiResponse += match[1]
-              }
-            } else if (line.startsWith('data: ')) {
-              // Alternative format: data: {"content":"text"}
-              try {
-                const json = JSON.parse(line.slice(6))
-                if (json.content) {
-                  aiResponse += json.content
-                }
-              } catch (e) {
-                // Not JSON, might be plain text
-                aiResponse += line.slice(6)
-              }
-            } else if (line.trim() && !line.startsWith('{')) {
-              // Plain text line
-              aiResponse += line
+          // Update the last message with streamed content
+          setMessages(prev => {
+            const newMessages = [...prev]
+            newMessages[newMessages.length - 1] = {
+              role: "assistant",
+              content: aiResponse
             }
-
-            // Update the last message with streamed content
-            setMessages(prev => {
-              const newMessages = [...prev]
-              newMessages[newMessages.length - 1] = {
-                role: "assistant",
-                content: aiResponse
-              }
-              return newMessages
-            })
-          }
+            return newMessages
+          })
         }
       }
 
